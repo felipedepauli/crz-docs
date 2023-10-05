@@ -1,0 +1,5 @@
+outs:
+- md5: 3a9ee73a0006675f732eccb682d3af57
+  size: 134
+  hash: md5
+  path: yolov3.weights

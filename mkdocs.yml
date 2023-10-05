@@ -1,5 +1,11 @@
 site_name: Artificial Intelligence
 nav:
         - Home: index.md
+        - 1. Fundamentos da Inteligência Artificial: ia/01_fundamentos.md
+        - 2. Aprendizado de Máquina: ia/02_aprendizado.md
+        - 3. Deep Learning: ia/03_deep_learning.md
+        - 4. Visão Computacional: ia/04_vc.md
+        - 5. Processamento de Linguagem Natural: ia/05_pln.md
+        - 6. Robótica e Sistemas Autônomos: ia/06_sa.md
         - About: about.md
 theme: readthedocs

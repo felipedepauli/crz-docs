@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Literals Template</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    .wrapper {
+        display: flex;
+        width: 100vw;
+        height: 90vh;
+
+        text-align: center;
+        justify-content: center;
+
+        padding: 100px;
+    }
+    #box {
+        background-color: rgb(224, 224, 224);
+        display: flex;
+        align-items: center;
+        padding: 100px 200px;
+        width: 800px;
+    }
+    .satanas_com_cor, .satanas_sem_cor {
+        text-align: left;
+        width: 100%;
+    }
+    .satanas_sem_cor {
+        color: black;
+    }
+    .satanas_com_cor {
+        color: red;
+    }
+</style>
+<body>
+    <div class="wrapper">
+        <div id="box">
+        
+        </div>
+        <button class="wow" onclick="toggleText()">Toggle</button>
+    </div>
+</body>
+<script>
+    const box = document.querySelector('#box')
+
+    var myVar = 'Very crazy, Hey brow!'
+
+    var toggle = true
+    function toggleText() {
+        if(toggle)  box.innerHTML = coloridao`Texto:&nbsp;${myVar}`
+        else        box.innerHTML = semColorido`Texto:&nbsp;${myVar}`
+
+        toggle = !toggle
+    }
+
+    function coloridao(template, ...values) {
+        return template.reduce((accumulator, part, i) => {
+            return `
+                ${accumulator}
+                <span class="satanas_com_cor">
+                    ${values[i-1]}
+                </span>
+            `
+        })
+    }
+    function semColorido(template, ...values) {
+        return template.reduce((accumulator, part, i) => {
+            return `
+                ${accumulator}
+                <span class="satanas_sem_cor">
+                    ${values[i-1]}
+                </span>
+            `
+        })
+    }
+
+</script>
+</html>

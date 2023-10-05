@@ -1,0 +1,19 @@
+form {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+}
+.field {
+    width: 390px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+.field label.required::after {
+    content: "*";
+    color: red;
+}
+.field input {
+    font-size: 20px;
+    padding: 5px;
+    font-family: Calibri;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="field_required.css">
+    <link rel="stylesheet" href="underline.css">
+    <link rel="stylesheet" href="hambuerguer.css">
+    <link rel="stylesheet" href="quotes.css">
+    <link rel="stylesheet" href="tooltip.css">
+    <link rel="stylesheet" href="icons.css">
+    <title>CSS ::before e ::after</title>
+</head>
+<body>
+    <div class="menu_wrapper"><div class="menu"></div></div>
+    <form action="">
+        <div class="field">
+            <label for="nome"><span>Nome</span></label>
+            <input id="nome"type="text">
+        </div>
+        <div class="field">
+            <label for="idade"><span>Idade</span></label>
+            <input id="idade" type="text">
+        </div>
+        <div class="field">
+            <label for="cidade" class="required"><span>Cidade</span></label>
+            <input id="cidade" type="text">
+        </div>
+    </form>
+    <div class="quote" data-tooltip="Eu sou uma citação!!">
+        <p>Aqui vem um texto muito caótico.</p>
+    </div>
+    <div class="list">
+        <div class="subject subject_math">
+            <p>Math</p>
+        </div>
+        <div class="subject subject_calculus">
+            <p>Calculus</p>
+        </div>
+        <div class="subject subject_physics">
+            <p>Physics</p>
+        </div>
+        <div class="subject subject_la">
+            <p>Linear Algebra</p>
+        </div>
+    </div>
+</body>
+</html>

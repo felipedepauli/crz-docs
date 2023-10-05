@@ -1,0 +1,55 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 150px;
+}
+.subject {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+.subject p {
+    padding: 0 0 0 10px;
+    font-size: 20px;
+}
+.subject_math::before {
+    display: flex;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    content: "";
+    background: url(images/icons/atom.jpg) no-repeat;
+    background-size: 100%;
+    float: left;
+}
+.subject_calculus::before {
+    display: flex;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    content: "";
+    background: url(images/icons/dna.jpg) no-repeat;
+    background-size: 100%;
+    float: left;
+}
+.subject_physics::before {
+    display: flex;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    content: "";
+    background: url(images/icons/lamp.jpg) no-repeat;
+    background-size: 100%;
+    float: left;
+}
+.subject_la::before {
+    display: flex;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    content: "";
+    background: url(images/icons/pulse.jpg) no-repeat;
+    background-size: 100%;
+    float: left;
+}

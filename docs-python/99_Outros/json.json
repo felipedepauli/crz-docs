@@ -1,0 +1,22 @@
+{
+    "clients": [
+        {
+            "name": "Client 1",
+            "address": "123 Main St",
+            "city": "Anytown",
+            "state": "NY"
+        },
+        {
+            "name": "Client 2",
+            "address": "456 First Ave",
+            "city": "Anytown",
+            "state": "NY"
+        },
+        {
+            "name": "Client 3",
+            "address": "789 Second St",
+            "city": "Anytown",
+            "state": "NY"
+        }
+    ]
+}

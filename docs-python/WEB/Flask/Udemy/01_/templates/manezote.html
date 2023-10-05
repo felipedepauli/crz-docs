@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manezote</title>
+</head>
+<body>
+    <h1>
+        Sei lá, sei lá!
+    </h1>
+    <div>
+        Oi, meu amiguinho! Vamos ao templeta.
+    </div>
+    <div>
+        <!-- Definição de variável -->
+        {% set my_var = 12 %}
+        <!-- Definição de variável com pipe -->
+        {% set num = lista | length %} 
+        <!-- Pipes disponíveis -->
+        Contagem de itens na lista: {{num}}
+    </div>
+    <div>
+        <ul>
+            {% for item in lista %}
+                <li>
+                    {{item}}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+        {{ lista[2] | capitalize }}, my variable is {{my_var}}.
+    </div>
+    <div>
+        {% set msg = "Vai se #%#!!" %}
+        {{ msg | global_function("Assinado, seu pai!")}}
+    </div>
+</body>
+</html>

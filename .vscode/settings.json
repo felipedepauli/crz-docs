@@ -1,0 +1,5 @@
+{
+    "gitlens.graph.dimMergeCommits": true,
+    "gitlens.graph.showRemoteNames": false,
+    "gitlens.graph.avatars": true
+}

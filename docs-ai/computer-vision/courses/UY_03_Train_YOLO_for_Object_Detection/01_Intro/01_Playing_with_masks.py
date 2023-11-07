@@ -23,71 +23,70 @@
 ---------------------------------
 '''
 
-# Imports (our backstage crew)
+# Imports
 import cv2
 import os
 
-# Setting the stage
-images_path = "UY_03_Train_YOLO_for_Object_Detection/01_Class"
+# Set the path to the images
+images_path = "../../../common/media/misc/traffic_signals"
 
 # ---------------------------------------------------------------------
 # 1. CREATE THE SLIDE BARS TO TRACK THE COLORS.
 
-# A function that does nothing, but with style.
-def do_nothing(go_fish):
+# A function that print the value of the slide bars
+def printColorValue(go_fish):
     print(f'The number is {go_fish}, and it shall remain so.')
 
-# Lights, camera, window!
+# This will be the track bars used to change the filters
+# that will be used to create the mask.
 cv2.namedWindow('Track Bars', cv2.WINDOW_NORMAL)
 
-# Cue the trackbars, our lovely supporting actors.
+# Create the track bars for the colors inside the panel.
+# The first parameter is the name of the track bar.
+# The second parameter is the name of the window where the track bar will be placed.
+# The third parameter is the initial value of the track bar.
+# The fourth parameter is the maximum value of the track bar.
+# The fifth parameter is the function that will be called every time the track bar is changed.
 for color in ['blue', 'green', 'red']:
     for bound, init_val in [('min', 0), ('max', 255)]:
-        cv2.createTrackbar(f'{bound}_{color}', 'Track Bars', init_val, 255, do_nothing)
-
-# Execute it and have fun!
-# while True:
-#     if cv2.waitKey(0):
-#         break
+        cv2.createTrackbar(f'{bound}_{color}', 'Track Bars', init_val, 255, printColorValue)
 
 # ---------------------------------------------------------------------
 # 2. READ AND PREPARE THE IMAGE.
 
 # Read the image (like reading a script, but with more pixels)
-image = f'{images_path}/objects-to-detect.jpg'
-image_BGR = cv2.imread(image)
+image = f'{images_path}/objects-to-detect.jpg'  # path to the image
+image_BGR = cv2.imread(image)                   # read the image from computer
 
+# If the image was read, we can continue.
 if image_BGR is not None:
     # Resize the image (our spotlight for today)
-    image_BGR = cv2.resize(image_BGR, (600, 426))
+    image_BGR = cv2.resize(image_BGR, (600, 426)) # you can use your own size
 else:
     print("The show can't go on. The image is missing! Check the image directory.")
 
 # Showtime! Presenting: the original image.
 cv2.namedWindow('Original Image', cv2.WINDOW_NORMAL)
 cv2.imshow('Original Image', image_BGR)
-cv2.waitKey(0)
 
 # And now, for a colorful twist: converting BGR to HSV.
 image_HSV = cv2.cvtColor(image_BGR, cv2.COLOR_BGR2HSV)
-
 # Ta-da! It's the HSV image.
 cv2.namedWindow('HSV Image', cv2.WINDOW_NORMAL)
 cv2.imshow('HSV Image', image_HSV)
-cv2.waitKey(0)
 
 # The show goes on as we define the loop for choosing the right colors for the mask.
 while True:
     # Get the min and max values for each color from our trusty trackbars.
     # For minimum range
-    min_blue = cv2.getTrackbarPos('min_blue', 'Track Bars')
+    min_blue  = cv2.getTrackbarPos('min_blue',  'Track Bars')
     min_green = cv2.getTrackbarPos('min_green', 'Track Bars')
-    min_red = cv2.getTrackbarPos('min_red', 'Track Bars')
+    min_red   = cv2.getTrackbarPos('min_red',   'Track Bars')
 
     # For maximum range
-    max_blue = cv2.getTrackbarPos('max_blue', 'Track Bars')
+    max_blue  = cv2.getTrackbarPos('max_blue',  'Track Bars')
     max_green = cv2.getTrackbarPos('max_green', 'Track Bars')
-    max_red = cv2.getTrackbarPos('max_red', 'Track Bars')
+    max_red   = cv2.getTrackbarPos('max_red',    'Track Bars')
 
     # Implementing the mask with chosen colors from trackbars (our grand finale!).
     mask = cv2.inRange(image_HSV,

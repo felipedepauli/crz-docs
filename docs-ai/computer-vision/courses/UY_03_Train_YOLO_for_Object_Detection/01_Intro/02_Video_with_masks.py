@@ -92,7 +92,7 @@ while True:
     if color_name == "red":
         mask1 = cv2.inRange(frame_HSV, color_bounds[color_name]["lower"], color_bounds[color_name]["upper"])
         mask2 = cv2.inRange(frame_HSV, color_bounds[color_name]["lower2"], color_bounds[color_name]["upper2"])
-        mask = cv2.bitwise_or(mask1, mask2)
+        mask  = cv2.bitwise_or(mask1, mask2)
     else:
         mask = cv2.inRange(frame_HSV, color_bounds[color_name]["lower"], color_bounds[color_name]["upper"])
 
